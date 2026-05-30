@@ -66,10 +66,10 @@ CREATE EXTENSION IF NOT EXISTS vectorscale CASCADE;
 # CREATE DATABASE similarity_search_service_db;
 
 -- Connect to the database
-...
+psql similarity_search_service_db;
 
 -- Enable vectorscale extension
-...
+CREATE EXTENSION IF NOT EXISTS vectorscale CASCADE;
 ```
 3. Create `docker-compose.yml` file, using provided template. It will create
    the `timescaledb` service with TimescaleDB container and mount the `initdb`
@@ -87,7 +87,7 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_USER: postgres
     ports:
-      - "xxxx:yyyy"
+      - "5555:5542"
     volumes:
       - # map the initdb prepare db script to :/docker-entrypoint-initdb.d/prepare_similarity_search_service_db.sql
 ```
